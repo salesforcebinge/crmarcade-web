@@ -111,7 +111,7 @@ target = "_blank"
 
 [header.actionButton]
 text = "Suggest a Tool"
-href = "https://github.com/salesforcebinge/crmarcade-web/issues/new?title=Tool+Suggestion:+[Name]&body=Tool+Name:%0AURL:%0ACategory:%0AWhy+it+matters:"
+href = "https://docs.google.com/forms/d/e/1FAIpQLSfArGWK-wl6pLseFTuCwsddNk6THutKz5Z4hjrJXXo1VNt77g/viewform"
 
 [footer]
 description = "crmarcade — The architect-curated directory of Salesforce ecosystem tools."

@@ -44,7 +44,7 @@ Then write a "Why It Matters" section in the body.
 
 ## Suggest a Tool
 
-Know a tool that belongs here? [Open an issue](https://github.com/salesforcebinge/crmarcade-web/issues/new?title=Tool+Suggestion:+[Name]&body=Tool+Name:%0AURL:%0ACategory:%0AWhy+it+matters:).
+Know a tool that belongs here? [Submit a suggestion](https://docs.google.com/forms/d/e/1FAIpQLSfArGWK-wl6pLseFTuCwsddNk6THutKz5Z4hjrJXXo1VNt77g/viewform).
 
 ## License
 
