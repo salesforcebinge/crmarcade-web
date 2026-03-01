@@ -1,0 +1,30 @@
+---
+import UiTag from "@components/ui/tags/Tag.astro";
+import DirectoryFeaturedTag from "../FeaturedTag.astro";
+const { myItem, href } = Astro.props;
+const license = myItem.license;
+---
+
+<a href={href}
+  class="block h-full rounded-lg border border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900 p-6 hover:border-gray-300 dark:hover:border-gray-600 hover:shadow-sm transition-all duration-200 group">
+  <div class="flex items-start justify-between gap-3">
+    <div class="min-w-0">
+      <h3 class="text-base font-semibold text-gray-900 dark:text-gray-50 card-title group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
+        { myItem?.title }
+      </h3>
+      <p class="mt-1.5 text-sm text-gray-500 dark:text-gray-400 line-clamp-2 card-description">
+        { myItem.description }
+      </p>
+    </div>
+    {license && (
+      <span class="shrink-0 mt-0.5 inline-flex items-center rounded-full px-2 py-0.5 text-[10px] font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400 ring-1 ring-inset ring-gray-200 dark:ring-gray-700">
+        {license}
+      </span>
+    )}
+  </div>
+  <div class="mt-3 flex flex-wrap gap-1.5">
+    { myItem.tags?.map(
+      (e: string) => <UiTag tag={e} /> )
+    }
+  </div>
+</a>

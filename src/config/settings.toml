@@ -1,0 +1,126 @@
+theme = 'brookmint'
+
+[general]
+title = "crmarcade"
+logo = ""
+iconLogo = "tabler:device-gamepad-2"
+
+[general.seo]
+name = "crmarcade"
+description = "The architect-curated directory of Salesforce ecosystem tools, frameworks, and resources."
+url = "https://crmarcade.com"
+
+[directoryData.source]
+name = "markdown"
+
+[directoryData.tagPages]
+title = "{0} Tools"
+
+[directoryData.search]
+placeholder = "Search {0} tools and resources"
+
+[[directoryData.tags]]
+key = "devops"
+name = "DevOps & CI/CD"
+color = "blue"
+description = "Build pipelines, source control, and deployment automation for Salesforce orgs."
+
+[[directoryData.tags]]
+key = "testing"
+name = "Testing"
+color = "green"
+description = "Code quality, static analysis, and test automation frameworks."
+
+[[directoryData.tags]]
+key = "data-migration"
+name = "Data Migration"
+color = "indigo"
+description = "Tools for moving data in and out of Salesforce orgs."
+
+[[directoryData.tags]]
+key = "document-generation"
+name = "Document Generation"
+color = "purple"
+description = "Generate documents, PDFs, and reports from Salesforce data."
+
+[[directoryData.tags]]
+key = "logging"
+name = "Logging & Debugging"
+color = "green"
+description = "Logging frameworks and debug utilities for Apex and Salesforce."
+
+[[directoryData.tags]]
+key = "lwc-ui"
+name = "LWC & UI"
+color = "blue"
+description = "Lightning Web Components, UI libraries, and frontend tooling."
+
+[[directoryData.tags]]
+key = "integration"
+name = "Integration"
+color = "indigo"
+description = "Middleware, APIs, and integration patterns for Salesforce."
+
+[[directoryData.tags]]
+key = "architecture"
+name = "Architecture"
+color = "purple"
+description = "Design patterns, enterprise architecture frameworks, and best practices."
+
+[[directoryData.tags]]
+key = "admin"
+name = "Admin Utilities"
+color = "green"
+description = "Browser extensions, org management, and admin productivity tools."
+
+[[directoryData.tags]]
+key = "ai-agents"
+name = "AI & Agents"
+color = "blue"
+description = "Einstein, Agentforce, prompt engineering, and AI-powered Salesforce tools."
+
+[[directoryData.tags]]
+key = "appexchange"
+name = "AppExchange Gems"
+color = "indigo"
+description = "Noteworthy AppExchange packages that architects should know about."
+
+[[directoryData.tags]]
+key = "open-source"
+name = "Open Source"
+color = "green"
+description = "Community-built open source tools for the Salesforce ecosystem."
+
+[header.banner]
+show = false
+text = ""
+link = "https://salesforcebinge.com"
+brandText = ""
+
+[header.navbar]
+colorModeSelector = true
+
+[[header.navbar.links]]
+name = "About"
+href = "/about"
+
+[[header.navbar.links]]
+name = "Salesforce Binge"
+href = "https://salesforcebinge.com"
+target = "_blank"
+
+[header.actionButton]
+text = "Suggest a Tool"
+href = "https://github.com/salesforcebinge/crmarcade-web/issues/new?title=Tool+Suggestion:+[Name]&body=Tool+Name:%0AURL:%0ACategory:%0AWhy+it+matters:"
+
+[footer]
+description = "crmarcade — The architect-curated directory of Salesforce ecosystem tools."
+
+[footer.socials.github]
+link = "https://github.com/salesforcebinge"
+
+[footer.socials.youtube]
+link = "https://www.youtube.com/@SalesforceBinge"
+
+[footer.socials.x]
+link = "https://x.com/salesforcebinge"

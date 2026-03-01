@@ -1,0 +1,131 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import AppProse from "../components/app/Prose.astro";
+const { frontmatter, slug } = Astro.props;
+import themeConfig from "@util/themeConfig";
+import { Icon } from "astro-icon/components";
+import AppShell from "@components/app/AppShell.astro";
+import TitleHeader from "@components/listings/TitleHeader.astro";
+import UiTag from "@components/ui/tags/Tag.astro";
+
+const siteTitle = themeConfig.general.title;
+const title = frontmatter?.title || siteTitle;
+const link = frontmatter?.link;
+const description = frontmatter?.description;
+const linkText = link?.replace(/^https?:\/\//, "");
+const pageHeader = themeConfig.listings.pageHeader;
+
+const github_url = frontmatter?.github_url;
+const appexchange_url = frontmatter?.appexchange_url;
+const license = frontmatter?.license;
+const author = frontmatter?.author;
+const clouds = frontmatter?.clouds || [];
+const last_verified = frontmatter?.last_verified;
+---
+
+<BaseLayout title={title} description={description} slug={slug}>
+  <AppShell>
+    <div class="max-w-2xl w-full mx-auto py-20">
+      {pageHeader == "title" && (
+        <div class="mb-10">
+          <div class="flex justify-between items-center">
+            <h1 class="font-bold text-4xl text-gray-900 dark:text-gray-50">
+              {title}
+            </h1>
+            {link && (
+              <a
+                class="inline-flex items-center gap-1 font-medium text-gray-800 dark:text-gray-100"
+                href={link}
+                target="_blank"
+                rel="noopener"
+              >
+                {linkText}
+                <Icon name="tabler:arrow-up-right" />
+              </a>
+            )}
+          </div>
+          <p class="text-gray-400 mt-2.5">{description}</p>
+        </div>
+      )}
+
+      {/* Metadata Card */}
+      {(author || license || github_url || appexchange_url || clouds.length > 0) && (
+        <div class="mb-8 rounded-lg border border-gray-200 dark:border-gray-700 p-5 bg-gray-50 dark:bg-gray-800/50">
+          <div class="grid grid-cols-2 gap-4 text-sm">
+            {author && (
+              <div>
+                <span class="text-gray-500 dark:text-gray-400">Author</span>
+                <p class="font-medium text-gray-900 dark:text-gray-100">{author}</p>
+              </div>
+            )}
+            {license && (
+              <div>
+                <span class="text-gray-500 dark:text-gray-400">License</span>
+                <p class="font-medium text-gray-900 dark:text-gray-100">{license}</p>
+              </div>
+            )}
+          </div>
+
+          {clouds.length > 0 && (
+            <div class="mt-3">
+              <span class="text-sm text-gray-500 dark:text-gray-400">Salesforce Clouds</span>
+              <div class="flex flex-wrap gap-1.5 mt-1">
+                {clouds.map((cloud: string) => (
+                  <span class="inline-flex items-center rounded-md px-2 py-0.5 text-xs font-medium bg-primary-50 text-primary-700 ring-1 ring-inset ring-primary-600/20 dark:bg-primary-400/10 dark:text-primary-400 dark:ring-primary-400/30">
+                    {cloud}
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
+
+          <div class="flex flex-wrap gap-3 mt-4">
+            {github_url && (
+              <a
+                href={github_url}
+                target="_blank"
+                rel="noopener"
+                class="inline-flex items-center gap-1.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+              >
+                <Icon name="tabler:brand-github" class="w-4 h-4" />
+                GitHub
+              </a>
+            )}
+            {appexchange_url && (
+              <a
+                href={appexchange_url}
+                target="_blank"
+                rel="noopener"
+                class="inline-flex items-center gap-1.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+              >
+                <Icon name="tabler:puzzle" class="w-4 h-4" />
+                AppExchange
+              </a>
+            )}
+            {link && (
+              <a
+                href={link}
+                target="_blank"
+                rel="noopener"
+                class="inline-flex items-center gap-1.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+              >
+                <Icon name="tabler:external-link" class="w-4 h-4" />
+                Website
+              </a>
+            )}
+          </div>
+
+          {last_verified && (
+            <p class="mt-3 text-xs text-gray-400 dark:text-gray-500">
+              Last verified: {last_verified}
+            </p>
+          )}
+        </div>
+      )}
+
+      <AppProse>
+        <slot />
+      </AppProse>
+    </div>
+  </AppShell>
+</BaseLayout>

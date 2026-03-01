@@ -1,0 +1,48 @@
+[layout]
+sidebar = false
+emoji = false
+
+[listings]
+pageHeader = 'title'
+
+[directoryUI.search]
+showCount = true
+icon = "tabler:search"
+
+[directoryUI.search.tags]
+display = "show-all"
+intersection = false
+
+[directoryUI.grid]
+list = false
+type = "rectangle-card-grid"
+
+[directoryUI.grid.emptyState]
+text = "No tools found. Try a different search or category."
+type = "simple"
+icon = "tabler:search-off"
+
+[directoryUI.grid.card]
+image = true
+
+[directoryUI.grid.submit]
+show = true
+first = false
+title = "Know a tool we're missing?"
+description = "Suggest a tool to add to the directory."
+hideable = true
+
+[directoryUI.featured]
+showOnAllPages = true
+showOnSide = false
+icon = "tabler:star"
+labelForCard = "Featured"
+
+[ui.icons]
+dark = "tabler:moon"
+light = "tabler:sun"
+youtube = "tabler:brand-youtube"
+x = "tabler:brand-twitter"
+instagram = "tabler:brand-instagram"
+facebook = "tabler:brand-facebook"
+github = "tabler:brand-github"

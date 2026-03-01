@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <rect x="2" y="6" width="20" height="12" rx="4" />
+  <circle cx="9" cy="12" r="1" fill="currentColor" />
+  <circle cx="15" cy="12" r="1" fill="currentColor" />
+  <path d="M6 10v4M4 12h4" />
+  <style>
+    rect, path { stroke: #7c3aed; }
+    circle { fill: #7c3aed; stroke: none; }
+    @media (prefers-color-scheme: dark) {
+      rect, path { stroke: #a78bfa; }
+      circle { fill: #a78bfa; }
+    }
+  </style>
+</svg>

@@ -1,0 +1,120 @@
+---
+import { Icon } from "astro-icon/components";
+import ColorSelector from "./header/ColorSelector.astro";
+import Logo from "./Logo.astro";
+import config from "@util/themeConfig";
+
+const isActive = (path: string, currentPath: string | undefined) => {
+  if (!currentPath) return false;
+  return (
+    currentPath.split("/")[1] === path.split("/")[1] || currentPath === path
+  );
+};
+
+const currentPath = new URL(Astro.request.url).pathname;
+---
+
+<nav class="bg-white dark:bg-gray-900 border-b border-gray-100 dark:border-gray-800">
+  <div class="mx-auto max-w-5xl px-6 lg:px-8">
+    <div class="relative flex h-14 justify-between">
+      <!-- Mobile menu button -->
+      <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+        <button
+          id="mobile-menu-button"
+          class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:text-gray-500"
+          aria-label="Open main menu"
+        >
+          <Icon
+            id="mobile-menu-icon"
+            name="tabler:baseline-density-medium"
+            class="block h-5 w-5"
+            aria-hidden="true"
+          />
+        </button>
+      </div>
+
+      <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+        <div class="flex flex-shrink-0 items-center">
+          <Logo />
+        </div>
+        <div class="hidden sm:ml-8 sm:flex sm:space-x-6">
+          {
+            config.header.navbar.links.map((navItem) => (
+              <a
+                href={navItem.href}
+                target={navItem.target || "_self"}
+                class={`inline-flex gap-1 items-center px-1 pt-1 text-sm ${
+                  isActive(navItem.href, currentPath)
+                    ? "text-gray-900 dark:text-white font-medium"
+                    : "text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300"
+                }`}
+              >
+                {navItem.name}
+                {navItem.target === "_blank" && <Icon name="tabler:arrow-up-right" class="w-3.5 h-3.5" />}
+              </a>
+            ))
+          }
+        </div>
+      </div>
+
+      <div class="absolute inset-y-0 right-0 flex items-center gap-3 pr-2 sm:static sm:inset-auto sm:pr-0">
+        {config.header.navbar.colorModeSelector && (
+          <ColorSelector transition:persist />
+        )}
+        <a
+          href={config?.header.actionButton?.href}
+          target="_blank"
+          rel="noopener"
+          class="hidden sm:inline-flex text-sm text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300"
+        >
+          {config?.header.actionButton?.text}
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="sm:hidden hidden">
+    <div class="space-y-1 pb-4 pt-2 px-4">
+      {
+        config.header.navbar.links.map((item) => (
+          <a
+            href={item.href}
+            target={item.target || "_self"}
+            class={`block py-2 text-sm ${
+              isActive(item.href, currentPath)
+                ? "text-gray-900 dark:text-white font-medium"
+                : "text-gray-500 dark:text-gray-400"
+            }`}
+          >
+            {item.name}
+          </a>
+        ))
+      }
+      <a
+        href={config?.header.actionButton?.href}
+        target="_blank"
+        rel="noopener"
+        class="block py-2 text-sm text-gray-500"
+      >
+        {config?.header.actionButton?.text}
+      </a>
+    </div>
+  </div>
+</nav>
+
+<script>
+  const mobileMenuButton = document.getElementById("mobile-menu-button");
+  const mobileMenu = document.getElementById("mobile-menu");
+  const mobileMenuIcon = document.getElementById("mobile-menu-icon");
+
+  if (mobileMenuButton && mobileMenu && mobileMenuIcon) {
+    mobileMenuButton.addEventListener("click", () => {
+      const isOpen = mobileMenu.classList.toggle("hidden");
+      mobileMenuIcon.setAttribute(
+        "name",
+        isOpen ? "tabler:baseline-density-medium" : "tabler:x",
+      );
+    });
+  }
+</script>
