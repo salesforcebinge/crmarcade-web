@@ -3,7 +3,7 @@ title: sfp (sfpowerscripts) CLI
 description: An end-to-end build and deployment orchestrator for Salesforce. Handles scratch org pooling, artifact management, and modular CI/CD pipelines.
 tags:
   - devops
-  - open-source
+
 link: https://docs.dxatscale.io/
 github_url: https://github.com/dxatscale/sfp
 license: MIT

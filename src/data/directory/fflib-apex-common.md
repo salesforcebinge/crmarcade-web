@@ -3,7 +3,7 @@ title: fflib Apex Common
 description: The enterprise architecture library for Apex. Implements Domain, Selector, Service, and Unit of Work patterns for scalable Salesforce development.
 tags:
   - architecture
-  - open-source
+
 link: https://github.com/apex-enterprise-patterns/fflib-apex-common
 github_url: https://github.com/apex-enterprise-patterns/fflib-apex-common
 license: BSD-3-Clause

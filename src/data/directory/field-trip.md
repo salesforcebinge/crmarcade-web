@@ -2,8 +2,7 @@
 title: Field Trip
 description: Analyzes field usage across your Salesforce org to identify unused, underused, and redundant fields — essential for org cleanup and optimization.
 tags:
-  - admin
-  - open-source
+  - governance
 link: https://sfieldtrip.com/
 github_url: https://github.com/pgonzaleznetwork/FieldTrip
 license: MIT

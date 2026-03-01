@@ -1,7 +1,8 @@
 import Grid from '@/components/directory/Grid.astro'
 import Search from '@/components/directory/Search.astro'
+import SidebarTags from '@/components/directory/SidebarTagsRight.astro'
 
-<div class="text-center max-w-2xl mx-auto mb-16">
+<div class="text-center max-w-2xl mx-auto mb-12">
   <h1 class="text-4xl font-bold tracking-tight sm:text-5xl">
     <span class="text-gray-900 dark:text-white">crm</span><span class="text-primary-600 dark:text-primary-400">arcade</span>
   </h1>
@@ -10,6 +11,12 @@ import Search from '@/components/directory/Search.astro'
   </p>
 </div>
 
-<Search />
-
-<Grid />
+<div class="flex gap-8">
+  <div class="flex-1 min-w-0">
+    <Search />
+    <Grid />
+  </div>
+  <aside class="hidden lg:block w-48 shrink-0">
+    <SidebarTags />
+  </aside>
+</div>

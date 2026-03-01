@@ -3,7 +3,7 @@ title: Apex PMD
 description: A static code analysis tool for Apex that catches common issues like unused variables, empty blocks, and security vulnerabilities before they hit production.
 tags:
   - testing
-  - open-source
+
 link: https://pmd.github.io/
 github_url: https://github.com/pmd/pmd
 license: BSD-3-Clause

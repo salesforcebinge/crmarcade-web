@@ -3,7 +3,7 @@ title: Salesforce Files Extractor
 description: An open-source tool that bulk-downloads files from any Salesforce org using the REST API, with MD5 checksum verification and GitHub Actions support.
 tags:
   - data-migration
-  - open-source
+
 link: https://salesforcebinge.com
 github_url: https://github.com/salesforcebinge/Salesforce-Files-Extractor
 license: MIT

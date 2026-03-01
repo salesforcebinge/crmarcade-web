@@ -3,7 +3,7 @@ title: Salesforce Inspector Reloaded
 description: A browser extension that adds productivity tools directly into the Salesforce UI — data export, field inspection, org switching, and more.
 tags:
   - admin
-  - open-source
+
 link: https://chromewebstore.google.com/detail/salesforce-inspector-reloa/hpijlohoihegkfehhibggnkbjhoemldh
 github_url: https://github.com/tprouvot/Salesforce-Inspector-reloaded
 license: MIT

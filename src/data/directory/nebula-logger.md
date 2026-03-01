@@ -3,7 +3,7 @@ title: Nebula Logger
 description: A robust, configurable logging framework for Apex and Lightning. Supports custom log levels, log entry tagging, and log management through a custom UI.
 tags:
   - logging
-  - open-source
+
 link: https://jongpie.github.io/NebulaLogger/
 github_url: https://github.com/jongpie/NebulaLogger
 license: MIT

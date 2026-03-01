@@ -1,0 +1,87 @@
+---
+import themeConfig from "@util/themeConfig";
+const allTags = themeConfig.directoryData.tags;
+---
+
+<nav class="sticky top-24">
+  <h3 class="text-xs font-semibold uppercase tracking-wider text-gray-400 dark:text-gray-500 mb-3">
+    Categories
+  </h3>
+  <ul class="space-y-1">
+    <li>
+      <button
+        data-tag-key=""
+        class="sidebar-tag w-full text-left text-sm py-1.5 px-2 rounded-md text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors active-tag"
+      >
+        All
+      </button>
+    </li>
+    {allTags.map((tag) => (
+      <li>
+        <button
+          data-tag-key={tag.key}
+          class="sidebar-tag w-full text-left text-sm py-1.5 px-2 rounded-md text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+        >
+          {tag.name}
+        </button>
+      </li>
+    ))}
+  </ul>
+</nav>
+
+<style>
+  .sidebar-tag.active-tag {
+    color: var(--color-primary-600);
+    background-color: var(--color-primary-50);
+    font-weight: 500;
+  }
+
+  :global(.dark) .sidebar-tag.active-tag {
+    color: var(--color-primary-400);
+    background-color: var(--color-primary-950);
+  }
+</style>
+
+<script>
+  import { tags } from "../../store.js";
+
+  function initSidebarTags() {
+    const buttons = document.querySelectorAll(".sidebar-tag");
+
+    function updateActiveState() {
+      const selectedTags = tags.get() as string[];
+      buttons.forEach((btn) => {
+        const key = (btn as HTMLElement).dataset.tagKey;
+        if (key === "" && selectedTags.length === 0) {
+          btn.classList.add("active-tag");
+        } else if (key && selectedTags.includes(key)) {
+          btn.classList.add("active-tag");
+        } else {
+          btn.classList.remove("active-tag");
+        }
+      });
+    }
+
+    buttons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const key = (btn as HTMLElement).dataset.tagKey;
+        if (!key) {
+          tags.set([] as never[]);
+        } else {
+          const current = tags.get() as string[];
+          if (current.includes(key)) {
+            tags.set(current.filter((t) => t !== key) as never[]);
+          } else {
+            tags.set([key] as never[]);
+          }
+        }
+      });
+    });
+
+    tags.subscribe(() => updateActiveState());
+    updateActiveState();
+  }
+
+  // astro:page-load fires on initial load AND on every client-side navigation
+  document.addEventListener("astro:page-load", initSidebarTags);
+</script>

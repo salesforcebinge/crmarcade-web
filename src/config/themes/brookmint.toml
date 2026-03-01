@@ -10,7 +10,7 @@ showCount = true
 icon = "tabler:search"
 
 [directoryUI.search.tags]
-display = "show-all"
+display = "none"
 intersection = false
 
 [directoryUI.grid]

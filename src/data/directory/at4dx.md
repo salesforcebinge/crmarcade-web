@@ -3,7 +3,7 @@ title: AT4DX (Advanced Techniques for DX)
 description: An extension of fflib that adds dependency injection, platform event handling, and async processing patterns to Salesforce enterprise architecture.
 tags:
   - architecture
-  - open-source
+
 link: https://github.com/apex-enterprise-patterns/at4dx
 github_url: https://github.com/apex-enterprise-patterns/at4dx
 license: BSD-3-Clause

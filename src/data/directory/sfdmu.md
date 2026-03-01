@@ -3,7 +3,7 @@ title: SFDMU (Data Move Utility)
 description: A powerful data migration tool for Salesforce. Handles complex object relationships, record matching, and bulk operations across orgs.
 tags:
   - data-migration
-  - open-source
+
 link: https://help.sfdmu.com/
 github_url: https://github.com/forcedotcom/SFDX-Data-Move-Utility
 license: BSD-3-Clause

@@ -80,16 +80,16 @@ color = "blue"
 description = "Einstein, Agentforce, prompt engineering, and AI-powered Salesforce tools."
 
 [[directoryData.tags]]
-key = "appexchange"
-name = "AppExchange Gems"
+key = "modeling"
+name = "Modeling & Design"
 color = "indigo"
-description = "Noteworthy AppExchange packages that architects should know about."
+description = "Diagramming, data modeling, and solution design tools for architects."
 
 [[directoryData.tags]]
-key = "open-source"
-name = "Open Source"
+key = "governance"
+name = "Governance"
 color = "green"
-description = "Community-built open source tools for the Salesforce ecosystem."
+description = "Org health, technical debt tracking, field utilization, and change management."
 
 [header.banner]
 show = false

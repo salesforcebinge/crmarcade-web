@@ -3,7 +3,7 @@ title: CumulusCI
 description: A Python-based automation framework for Salesforce development and release management, originally built for NPSP but useful across any org.
 tags:
   - devops
-  - open-source
+
 link: https://cumulusci.readthedocs.io/
 github_url: https://github.com/SFDO-Tooling/CumulusCI
 license: BSD-3-Clause

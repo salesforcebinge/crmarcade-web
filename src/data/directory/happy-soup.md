@@ -2,9 +2,8 @@
 title: Happy Soup
 description: A dependency analysis tool for Salesforce metadata. Visualizes component dependencies to help you safely refactor, delete, or understand your org's architecture.
 tags:
-  - admin
+  - governance
   - architecture
-  - open-source
 link: https://happysoup.io/
 github_url: https://github.com/pgonzaleznetwork/HappySoup.io
 license: MIT
