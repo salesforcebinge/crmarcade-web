@@ -7,7 +7,7 @@ tags:
 link: https://github.com/svierk/awesome-lwc-collection
 github_url: https://github.com/svierk/awesome-lwc-collection
 license: MIT
-author: Stefan Viereck
+author: Sebastiano Schwarz
 clouds:
   - Platform
 last_verified: "2026-03-01"
