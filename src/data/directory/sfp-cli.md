@@ -4,10 +4,10 @@ description: An end-to-end build and deployment orchestrator for Salesforce. Han
 tags:
   - devops
 
-link: https://docs.dxatscale.io/
-github_url: https://github.com/dxatscale/sfp
+link: https://docs.flxbl.io/
+github_url: https://github.com/flxbl-io/sfp
 license: MIT
-author: DX@Scale
+author: Flxbl (formerly DX@Scale)
 clouds:
   - Platform
   - Cross-Cloud

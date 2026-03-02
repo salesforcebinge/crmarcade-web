@@ -5,7 +5,7 @@ tags:
   - devops
 link: https://developer.salesforce.com/tools/salesforcecli
 github_url: https://github.com/salesforcecli/cli
-license: BSD-3-Clause
+license: Apache-2.0
 author: Salesforce
 clouds:
   - Platform

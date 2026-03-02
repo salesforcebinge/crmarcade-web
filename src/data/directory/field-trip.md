@@ -3,10 +3,9 @@ title: Field Trip
 description: Analyzes field usage across your Salesforce org to identify unused, underused, and redundant fields — essential for org cleanup and optimization.
 tags:
   - governance
-link: https://sfieldtrip.com/
-github_url: https://github.com/pgonzaleznetwork/FieldTrip
-license: MIT
-author: Pablo Gonzalez
+link: https://appexchange.salesforce.com/appxListingDetail?listingId=a0N30000003HSXEEA4
+license: Free
+author: RingLead (ZoomInfo)
 clouds:
   - Platform
   - Cross-Cloud
@@ -22,4 +21,4 @@ For architects doing org health assessments or planning migrations, field usage 
 ## Alternatives
 
 - **Happy Soup** — broader dependency analysis, not field-specific
-- **Salesforce Optimizer** — native tool, less granular
+- **Org Check** — free Salesforce Labs tool (replaced Salesforce Optimizer)

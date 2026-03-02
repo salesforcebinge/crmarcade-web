@@ -6,7 +6,7 @@ tags:
   - modeling
 
 link: https://elements.cloud/
-license: Freemium
+license: Paid
 author: Elements.cloud
 clouds:
   - Cross-Cloud
@@ -23,5 +23,5 @@ For architects doing org assessments, merger/acquisition consolidations, or tech
 ## Alternatives
 
 - **Happy Soup** — free, focused on dependency analysis
-- **Salesforce Optimizer** — native, but limited depth
+- **Org Check** — free Salesforce Labs tool (replaced Salesforce Optimizer)
 - **Metazoa Snapshot** — metadata comparison and documentation

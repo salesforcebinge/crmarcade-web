@@ -23,5 +23,5 @@ For architects, Gearset is the right call when the team needs speed-to-value on 
 ## Alternatives
 
 - **Copado** — more ALM features, stronger in regulated industries
-- **sfp (DX@Scale)** — open-source, full control, steeper learning curve
+- **sfp (Flxbl)** — open-source, full control, steeper learning curve
 - **DevOps Center** — free, Salesforce-native, but limited for complex orgs

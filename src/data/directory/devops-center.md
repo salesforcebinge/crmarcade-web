@@ -4,7 +4,7 @@ description: Salesforce's native DevOps solution — source tracking, change man
 tags:
   - devops
 
-link: https://www.salesforce.com/products/devops-center/
+link: https://developer.salesforce.com/developer-centers/devops
 license: Salesforce
 author: Salesforce
 clouds:
@@ -24,4 +24,4 @@ For architects, it's the right recommendation when the team is admin-heavy and t
 
 - **Gearset** — commercial, more powerful deployment and comparison features
 - **Copado** — enterprise-grade, full ALM suite
-- **sfp (DX@Scale)** — open-source, maximum flexibility but requires DevOps expertise
+- **sfp (Flxbl)** — open-source, maximum flexibility but requires DevOps expertise

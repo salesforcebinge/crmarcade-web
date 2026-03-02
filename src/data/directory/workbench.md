@@ -6,8 +6,8 @@ tags:
 
 link: https://workbench.developerforce.com/
 github_url: https://github.com/forceworkbench/forceworkbench
-license: Free
-author: Salesforce (community-maintained)
+license: BSD-3-Clause
+author: Ryan Brainard (community-maintained)
 clouds:
   - Cross-Cloud
 last_verified: "2026-03-01"

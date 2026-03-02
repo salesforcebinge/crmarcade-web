@@ -6,7 +6,7 @@ tags:
   - devops
 
 link: https://developer.salesforce.com/docs/platform/salesforce-code-analyzer/overview
-github_url: https://github.com/forcedotcom/sfdx-scanner
+github_url: https://github.com/forcedotcom/code-analyzer
 license: Salesforce
 author: Salesforce
 clouds:
@@ -24,5 +24,5 @@ For architects setting up quality gates in CI/CD pipelines, Code Analyzer is the
 ## Alternatives
 
 - **Apex PMD** — the underlying engine, more configurable rules
-- **Clayton** — commercial, deeper analysis with technical debt scoring
+- **Gearset Code Reviews** — commercial (formerly Clayton), deeper analysis with technical debt scoring
 - **CodeScan** — commercial alternative with broader language support

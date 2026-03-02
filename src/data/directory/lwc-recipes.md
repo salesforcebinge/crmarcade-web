@@ -5,7 +5,7 @@ tags:
   - lwc-ui
 link: https://recipes.lwc.dev/
 github_url: https://github.com/trailheadapps/lwc-recipes
-license: Apache-2.0
+license: CC0-1.0
 author: Salesforce
 clouds:
   - Platform
@@ -21,5 +21,5 @@ For architects evaluating LWC for a project, this repository answers the "can LW
 
 ## Alternatives
 
-- **LWC Playground** — browser-based experimentation
+- **lwc.dev** — official LWC documentation and playground
 - **E-Bikes Sample App** — full application context, not isolated recipes

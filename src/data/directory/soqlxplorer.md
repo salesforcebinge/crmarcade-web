@@ -1,11 +1,12 @@
 ---
 title: SOQLXplorer
-description: Native macOS app for browsing Salesforce org schemas, running SOQL queries, and inspecting data models — fast and offline-capable.
+description: Native macOS app for browsing Salesforce org schemas, running SOQL queries, and inspecting data models — fast with local schema caching.
 tags:
   - admin
   - governance
 
 link: https://www.pocketsoap.com/osx/soqlx/
+github_url: https://github.com/superfell/SoqlX
 license: Free
 author: Simon Fell
 clouds:

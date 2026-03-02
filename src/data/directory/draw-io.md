@@ -1,13 +1,13 @@
 ---
 title: draw.io (diagrams.net)
-description: Free, open-source diagramming tool that runs in the browser or desktop — the no-cost alternative to Lucidchart for architecture diagrams.
+description: Free diagramming tool that runs in the browser or desktop — the no-cost alternative to Lucidchart for architecture diagrams.
 tags:
   - modeling
 
 link: https://www.drawio.com/
 github_url: https://github.com/jgraph/drawio
 license: Apache-2.0
-author: JGraph
+author: draw.io Ltd (formerly JGraph)
 clouds:
   - Cross-Cloud
 last_verified: "2026-03-01"

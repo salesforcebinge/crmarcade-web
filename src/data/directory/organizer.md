@@ -4,9 +4,9 @@ description: Chrome extension for managing multiple Salesforce org logins — sw
 tags:
   - admin
 
-link: https://chromewebstore.google.com/detail/organizer-for-salesforce/lojdmgdchjcfnmkmodggbaafecagghnh
+link: https://chromewebstore.google.com/detail/organizer-for-salesforce/lojdmgdchjcfnmkmodggbaafecagllnh
 license: Free
-author: Luca Cazzone
+author: Enrico Murru
 clouds:
   - Cross-Cloud
 last_verified: "2026-03-01"

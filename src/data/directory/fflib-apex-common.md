@@ -24,5 +24,5 @@ For architects, fflib is more than a library. It's an architectural language. Wh
 ## Alternatives
 
 - **AT4DX** — extends fflib with dependency injection
-- **Apex Enterprise Patterns (book)** — the theory behind fflib
+- **Salesforce Platform Enterprise Architecture (book)** — the theory behind fflib, by Andrew Fawcett
 - **Custom frameworks** — many teams build their own, but fflib is the de facto standard
