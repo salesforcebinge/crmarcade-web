@@ -49,8 +49,14 @@ const currentPath = new URL(Astro.request.url).pathname;
                     : "text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300"
                 }`}
               >
-                {navItem.name}
-                {navItem.target === "_blank" && <Icon name="tabler:arrow-up-right" class="w-3.5 h-3.5" />}
+                {navItem.name === "Salesforce Binge" ? (
+                  <img src="/salesforcebinge-logo.png" alt="Salesforce Binge" class="h-5 dark:invert dark:brightness-110 dark:hue-rotate-180" />
+                ) : (
+                  <>
+                    {navItem.name}
+                    {navItem.target === "_blank" && <Icon name="tabler:arrow-up-right" class="w-3.5 h-3.5" />}
+                  </>
+                )}
               </a>
             ))
           }
