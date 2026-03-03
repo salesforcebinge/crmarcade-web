@@ -12,7 +12,7 @@ export const directorySchema = (imageSchema: z.ZodTypeAny) =>
     github_url: z.string().url().optional(),
     appexchange_url: z.string().url().optional(),
     license: z.enum([
-      "MIT", "Apache-2.0", "BSD-3-Clause", "CC0-1.0", "GPL-3.0",
+      "MIT", "Apache-2.0", "BSD-3-Clause", "CC0-1.0", "GPL-3.0", "AGPL-3.0",
       "Proprietary", "Free", "Freemium", "Paid", "Salesforce"
     ]).optional(),
     author: z.string().optional(),

@@ -20,16 +20,22 @@ title = "{0} Tools"
 placeholder = "Search {0} tools and resources"
 
 [[directoryData.tags]]
-key = "devops"
-name = "DevOps & CI/CD"
-color = "blue"
-description = "Build pipelines, source control, and deployment automation for Salesforce orgs."
+key = "admin"
+name = "Admin Utilities"
+color = "green"
+description = "Browser extensions, org management, and admin productivity tools."
 
 [[directoryData.tags]]
-key = "testing"
-name = "Testing"
-color = "green"
-description = "Code quality, static analysis, and test automation frameworks."
+key = "ai-agents"
+name = "AI & Agents"
+color = "blue"
+description = "Einstein, Agentforce, prompt engineering, and AI-powered Salesforce tools."
+
+[[directoryData.tags]]
+key = "architecture"
+name = "Architecture"
+color = "purple"
+description = "Design patterns, enterprise architecture frameworks, and best practices."
 
 [[directoryData.tags]]
 key = "data-migration"
@@ -38,10 +44,34 @@ color = "indigo"
 description = "Tools for moving data in and out of Salesforce orgs."
 
 [[directoryData.tags]]
+key = "devops"
+name = "DevOps & CI/CD"
+color = "blue"
+description = "Build pipelines, source control, and deployment automation for Salesforce orgs."
+
+[[directoryData.tags]]
 key = "document-generation"
 name = "Document Generation"
 color = "purple"
 description = "Generate documents, PDFs, and reports from Salesforce data."
+
+[[directoryData.tags]]
+key = "governance"
+name = "Governance"
+color = "green"
+description = "Org health, technical debt tracking, field utilization, and change management."
+
+[[directoryData.tags]]
+key = "identity"
+name = "Identity & Access"
+color = "purple"
+description = "SSO, OAuth, SAML, identity providers, and access management for Salesforce orgs."
+
+[[directoryData.tags]]
+key = "integration"
+name = "Integration"
+color = "indigo"
+description = "Middleware, APIs, and integration patterns for Salesforce."
 
 [[directoryData.tags]]
 key = "logging"
@@ -56,40 +86,16 @@ color = "blue"
 description = "Lightning Web Components, UI libraries, and frontend tooling."
 
 [[directoryData.tags]]
-key = "integration"
-name = "Integration"
-color = "indigo"
-description = "Middleware, APIs, and integration patterns for Salesforce."
-
-[[directoryData.tags]]
-key = "architecture"
-name = "Architecture"
-color = "purple"
-description = "Design patterns, enterprise architecture frameworks, and best practices."
-
-[[directoryData.tags]]
-key = "admin"
-name = "Admin Utilities"
-color = "green"
-description = "Browser extensions, org management, and admin productivity tools."
-
-[[directoryData.tags]]
-key = "ai-agents"
-name = "AI & Agents"
-color = "blue"
-description = "Einstein, Agentforce, prompt engineering, and AI-powered Salesforce tools."
-
-[[directoryData.tags]]
 key = "modeling"
 name = "Modeling & Design"
 color = "indigo"
 description = "Diagramming, data modeling, and solution design tools for architects."
 
 [[directoryData.tags]]
-key = "governance"
-name = "Governance"
+key = "testing"
+name = "Testing"
 color = "green"
-description = "Org health, technical debt tracking, field utilization, and change management."
+description = "Code quality, static analysis, and test automation frameworks."
 
 [header.banner]
 show = false

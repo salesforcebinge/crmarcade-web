@@ -2,7 +2,7 @@
 title: Axiom
 description: Web-based SSO and authentication testing tool for Salesforce — simplifies testing SAML, OAuth, and identity provider configurations.
 tags:
-  - admin
+  - identity
   - integration
 
 link: https://axiomsso.herokuapp.com/
