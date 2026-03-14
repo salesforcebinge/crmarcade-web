@@ -88,7 +88,7 @@ const audienceColors: Record<string, string> = {
 
       {/* Metadata Bar */}
       <div class="mb-10 rounded-lg border border-gray-200 dark:border-gray-700 p-5 bg-gray-50 dark:bg-gray-800/50">
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 text-sm">
+        <div class="grid grid-cols-3 gap-4 text-sm">
           {category && (
             <div>
               <span class="text-gray-500 dark:text-gray-400 text-xs uppercase tracking-wider">Category</span>
@@ -103,12 +103,6 @@ const audienceColors: Record<string, string> = {
                   {audience}
                 </span>
               </p>
-            </div>
-          )}
-          {time_estimate && (
-            <div>
-              <span class="text-gray-500 dark:text-gray-400 text-xs uppercase tracking-wider">Time</span>
-              <p class="font-medium text-gray-900 dark:text-gray-100 mt-0.5">{time_estimate}</p>
             </div>
           )}
           {phase && (
