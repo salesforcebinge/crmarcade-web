@@ -1,0 +1,182 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import AppProse from "../components/app/Prose.astro";
+import AppShell from "@components/app/AppShell.astro";
+import { Icon } from "astro-icon/components";
+
+const { frontmatter, slug } = Astro.props;
+
+const title = frontmatter?.title;
+const description = frontmatter?.description;
+const what_you_will_learn = frontmatter?.what_you_will_learn || [];
+const category = frontmatter?.category;
+const audience = frontmatter?.audience;
+const time_estimate = frontmatter?.time_estimate;
+const phase = frontmatter?.phase;
+const related_scenarios = frontmatter?.related_scenarios || [];
+const related_tools = frontmatter?.related_tools || [];
+const related_quick_refs = frontmatter?.related_quick_refs || [];
+const blog_url = frontmatter?.blog_url;
+
+const audienceColors: Record<string, string> = {
+  "All Levels": "bg-gray-50 text-gray-700 ring-gray-600/20 dark:bg-gray-400/10 dark:text-gray-400 dark:ring-gray-400/30",
+  "Junior Architect": "bg-green-50 text-green-700 ring-green-600/20 dark:bg-green-400/10 dark:text-green-400 dark:ring-green-400/30",
+  "Senior Architect": "bg-amber-50 text-amber-700 ring-amber-600/20 dark:bg-amber-400/10 dark:text-amber-400 dark:ring-amber-400/30",
+  "CTA-Track": "bg-red-50 text-red-700 ring-red-600/20 dark:bg-red-400/10 dark:text-red-400 dark:ring-red-400/30",
+};
+---
+
+<BaseLayout title={title} description={description} slug={`playbooks/${slug}`}>
+  <AppShell>
+    <div class="max-w-3xl w-full mx-auto py-16 px-6">
+      {/* Back link + Category badge */}
+      <div class="flex items-center justify-between mb-8">
+        <a href="/playbooks" class="inline-flex items-center gap-1 text-sm text-gray-500 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
+          <Icon name="tabler:arrow-left" class="w-4 h-4" />
+          All Playbooks
+        </a>
+        {category && (
+          <span class="inline-flex items-center rounded-md px-2 py-0.5 text-xs font-medium bg-gray-100 text-gray-700 ring-1 ring-inset ring-gray-300 dark:bg-gray-700 dark:text-gray-300 dark:ring-gray-600">
+            {category}
+          </span>
+        )}
+      </div>
+
+      {/* Title */}
+      <h1 class="font-bold text-3xl sm:text-4xl text-gray-900 dark:text-gray-50 mb-3">
+        {title}
+      </h1>
+      <p class="text-gray-500 dark:text-gray-400 text-lg mb-8">{description}</p>
+
+      {/* Deep Dive Blog Link */}
+      {blog_url && (
+        <div class="mb-6 rounded-lg border border-blue-200 dark:border-blue-800 bg-blue-50 dark:bg-blue-950/50 p-4">
+          <div class="flex items-start gap-2">
+            <Icon name="tabler:book" class="w-4 h-4 text-blue-600 dark:text-blue-400 mt-0.5 shrink-0" />
+            <div>
+              <span class="text-sm font-semibold text-blue-700 dark:text-blue-300">Deep Dive Available</span>
+              <p class="text-sm text-blue-600 dark:text-blue-400 mt-1">
+                This playbook is the quick reference. For the full walkthrough with examples,{" "}
+                <a href={blog_url} target="_blank" rel="noopener noreferrer" class="underline hover:text-blue-800 dark:hover:text-blue-200 font-medium">
+                  read the blog post
+                </a>.
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* What You'll Learn Callout */}
+      {what_you_will_learn.length > 0 && (
+        <div class="mb-10 rounded-lg border border-primary-200 dark:border-primary-800 bg-primary-50 dark:bg-primary-950/50 p-4">
+          <div class="flex items-start gap-2">
+            <Icon name="tabler:list-check" class="w-4 h-4 text-primary-600 dark:text-primary-400 mt-0.5 shrink-0" />
+            <div>
+              <span class="text-xs font-semibold uppercase tracking-wider text-primary-600 dark:text-primary-400">What You'll Learn</span>
+              <ul class="mt-2 space-y-1">
+                {what_you_will_learn.map((item: string) => (
+                  <li class="text-sm text-primary-800 dark:text-primary-200 flex items-start gap-1.5">
+                    <span class="text-primary-400 mt-0.5 shrink-0">&bull;</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Metadata Bar */}
+      <div class="mb-10 rounded-lg border border-gray-200 dark:border-gray-700 p-5 bg-gray-50 dark:bg-gray-800/50">
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 text-sm">
+          {category && (
+            <div>
+              <span class="text-gray-500 dark:text-gray-400 text-xs uppercase tracking-wider">Category</span>
+              <p class="font-medium text-gray-900 dark:text-gray-100 mt-0.5">{category}</p>
+            </div>
+          )}
+          {audience && (
+            <div>
+              <span class="text-gray-500 dark:text-gray-400 text-xs uppercase tracking-wider">Audience</span>
+              <p class="mt-0.5">
+                <span class={`inline-flex items-center rounded-md px-2 py-0.5 text-xs font-medium ring-1 ring-inset ${audienceColors[audience] || ""}`}>
+                  {audience}
+                </span>
+              </p>
+            </div>
+          )}
+          {time_estimate && (
+            <div>
+              <span class="text-gray-500 dark:text-gray-400 text-xs uppercase tracking-wider">Time</span>
+              <p class="font-medium text-gray-900 dark:text-gray-100 mt-0.5">{time_estimate}</p>
+            </div>
+          )}
+          {phase && (
+            <div>
+              <span class="text-gray-500 dark:text-gray-400 text-xs uppercase tracking-wider">Phase</span>
+              <p class="font-medium text-gray-900 dark:text-gray-100 mt-0.5">{phase}</p>
+            </div>
+          )}
+        </div>
+      </div>
+
+      {/* Main Content */}
+      <AppProse>
+        <slot />
+      </AppProse>
+
+      {/* Related Items Footer */}
+      {(related_scenarios.length > 0 || related_tools.length > 0 || related_quick_refs.length > 0) && (
+        <div class="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
+          <h3 class="text-sm font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-4">
+            Related
+          </h3>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 text-sm">
+            {related_scenarios.length > 0 && (
+              <div>
+                <span class="text-xs uppercase tracking-wider text-gray-400 dark:text-gray-500">Scenarios</span>
+                <ul class="mt-2 space-y-1">
+                  {related_scenarios.map((scenario: string) => (
+                    <li>
+                      <a href={`/scenarios/${scenario}`} class="text-primary-600 dark:text-primary-400 hover:underline">
+                        {scenario}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+            {related_tools.length > 0 && (
+              <div>
+                <span class="text-xs uppercase tracking-wider text-gray-400 dark:text-gray-500">Tools</span>
+                <ul class="mt-2 space-y-1">
+                  {related_tools.map((tool: string) => (
+                    <li>
+                      <a href={`/${tool}`} class="text-primary-600 dark:text-primary-400 hover:underline">
+                        {tool}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+            {related_quick_refs.length > 0 && (
+              <div>
+                <span class="text-xs uppercase tracking-wider text-gray-400 dark:text-gray-500">Quick Refs</span>
+                <ul class="mt-2 space-y-1">
+                  {related_quick_refs.map((ref: string) => (
+                    <li>
+                      <a href={`/quick-refs/${ref}`} class="text-primary-600 dark:text-primary-400 hover:underline">
+                        {ref}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+    </div>
+  </AppShell>
+</BaseLayout>

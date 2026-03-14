@@ -1,0 +1,76 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import AppShell from "@components/app/AppShell.astro";
+import { Icon } from "astro-icon/components";
+
+const scenarios = await getCollection("scenarios");
+
+const difficultyColors: Record<string, string> = {
+  "Foundational": "bg-green-50 text-green-700 ring-green-600/20 dark:bg-green-400/10 dark:text-green-400 dark:ring-green-400/30",
+  "Intermediate": "bg-amber-50 text-amber-700 ring-amber-600/20 dark:bg-amber-400/10 dark:text-amber-400 dark:ring-amber-400/30",
+  "CTA-Level": "bg-red-50 text-red-700 ring-red-600/20 dark:bg-red-400/10 dark:text-red-400 dark:ring-red-400/30",
+};
+---
+
+<BaseLayout title="Architecture Scenarios" description="Real-world architecture case studies solved with architectural thinking.">
+  <AppShell>
+    <div class="max-w-5xl mx-auto px-6 py-16">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <h1 class="text-4xl font-bold tracking-tight sm:text-5xl">
+          <span class="text-gray-900 dark:text-white">Architecture </span>
+          <span class="text-primary-600 dark:text-primary-400">Scenarios</span>
+        </h1>
+        <p class="mt-4 text-lg text-gray-500 dark:text-gray-400">
+          Real-world case studies solved with architectural thinking. Grounded in Salesforce's Well-Architected framework.
+        </p>
+      </div>
+
+      {scenarios.length === 0 ? (
+        <div class="text-center py-20">
+          <Icon name="tabler:building-arch" class="w-12 h-12 text-gray-300 dark:text-gray-600 mx-auto mb-4" />
+          <p class="text-gray-500 dark:text-gray-400 text-lg">Scenarios are coming soon.</p>
+          <p class="text-gray-400 dark:text-gray-500 text-sm mt-2">We're building CTA-grade architecture case studies. Check back shortly.</p>
+        </div>
+      ) : (
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {scenarios.map((scenario) => (
+            <a
+              href={`/scenarios/${scenario.id}`}
+              class="block rounded-lg border border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900 p-6 hover:border-gray-300 dark:hover:border-gray-600 hover:shadow-sm transition-all duration-200 group"
+            >
+              <div class="flex items-start justify-between gap-3 mb-3">
+                <h3 class="text-base font-semibold text-gray-900 dark:text-gray-50 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
+                  {scenario.data.title}
+                </h3>
+                <span class={`shrink-0 inline-flex items-center rounded-md px-2 py-0.5 text-[10px] font-medium ring-1 ring-inset ${difficultyColors[scenario.data.difficulty] || ""}`}>
+                  {scenario.data.difficulty}
+                </span>
+              </div>
+
+              <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2 mb-4">
+                {scenario.data.description}
+              </p>
+
+              <div class="flex flex-wrap gap-1.5">
+                <span class="inline-flex items-center rounded-md px-2 py-0.5 text-[10px] font-medium bg-gray-100 text-gray-600 dark:bg-gray-800 dark:text-gray-400">
+                  {scenario.data.industry}
+                </span>
+                {scenario.data.domains.slice(0, 3).map((domain: string) => (
+                  <span class="inline-flex items-center rounded-md px-2 py-0.5 text-[10px] font-medium bg-gray-50 text-gray-500 ring-1 ring-inset ring-gray-200 dark:bg-gray-800 dark:text-gray-400 dark:ring-gray-700">
+                    {domain}
+                  </span>
+                ))}
+                {scenario.data.domains.length > 3 && (
+                  <span class="inline-flex items-center rounded-md px-2 py-0.5 text-[10px] font-medium text-gray-400">
+                    +{scenario.data.domains.length - 3} more
+                  </span>
+                )}
+              </div>
+            </a>
+          ))}
+        </div>
+      )}
+    </div>
+  </AppShell>
+</BaseLayout>

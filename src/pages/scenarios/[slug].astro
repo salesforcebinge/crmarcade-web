@@ -1,0 +1,20 @@
+---
+import { getCollection, render } from "astro:content";
+import ScenarioListing from "@layouts/ScenarioListing.astro";
+
+export async function getStaticPaths() {
+  const scenarios = await getCollection("scenarios");
+  return scenarios.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { slug } = Astro.params;
+const { Content } = await render(entry);
+---
+
+<ScenarioListing frontmatter={entry.data} slug={slug}>
+  <Content />
+</ScenarioListing>

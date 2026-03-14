@@ -1,0 +1,67 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import AppShell from "@components/app/AppShell.astro";
+import { Icon } from "astro-icon/components";
+
+const quickrefs = await getCollection("quickrefs");
+
+// Group by category
+const grouped = quickrefs.reduce((acc, ref) => {
+  const cat = ref.data.category;
+  if (!acc[cat]) acc[cat] = [];
+  acc[cat].push(ref);
+  return acc;
+}, {} as Record<string, typeof quickrefs>);
+
+const categories = Object.keys(grouped).sort();
+---
+
+<BaseLayout title="Quick References" description="Cheatsheets, comparisons, and decision tables for Salesforce architects.">
+  <AppShell>
+    <div class="max-w-5xl mx-auto px-6 py-16">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <h1 class="text-4xl font-bold tracking-tight sm:text-5xl">
+          <span class="text-gray-900 dark:text-white">Quick </span>
+          <span class="text-primary-600 dark:text-primary-400">References</span>
+        </h1>
+        <p class="mt-4 text-lg text-gray-500 dark:text-gray-400">
+          Cheatsheets, comparisons, and decision tables.
+        </p>
+      </div>
+
+      {quickrefs.length === 0 ? (
+        <div class="text-center py-20">
+          <Icon name="tabler:bolt" class="w-12 h-12 text-gray-300 dark:text-gray-600 mx-auto mb-4" />
+          <p class="text-gray-500 dark:text-gray-400 text-lg">Quick references are coming soon.</p>
+          <p class="text-gray-400 dark:text-gray-500 text-sm mt-2">License comparisons, decision trees, and cheatsheets — built for speed.</p>
+        </div>
+      ) : (
+        <div class="space-y-10">
+          {categories.map((category) => (
+            <div>
+              <h2 class="text-sm font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-4 border-b border-gray-100 dark:border-gray-800 pb-2">
+                {category}
+              </h2>
+              <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {grouped[category].map((ref) => (
+                  <a
+                    href={`/quick-refs/${ref.id}`}
+                    class="block rounded-lg border border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900 p-5 hover:border-gray-300 dark:hover:border-gray-600 hover:shadow-sm transition-all duration-200 group"
+                  >
+                    <h3 class="text-sm font-semibold text-gray-900 dark:text-gray-50 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors mb-1.5">
+                      {ref.data.title}
+                    </h3>
+                    <p class="text-xs text-gray-500 dark:text-gray-400 line-clamp-2">
+                      {ref.data.tldr}
+                    </p>
+                  </a>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  </AppShell>
+</BaseLayout>

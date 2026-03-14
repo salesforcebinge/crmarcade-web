@@ -107,6 +107,18 @@ brandText = ""
 colorModeSelector = true
 
 [[header.navbar.links]]
+name = "Tools"
+href = "/"
+
+[[header.navbar.links]]
+name = "Playbooks"
+href = "/playbooks"
+
+[[header.navbar.links]]
+name = "Quick Refs"
+href = "/quick-refs"
+
+[[header.navbar.links]]
 name = "About"
 href = "/about"
 

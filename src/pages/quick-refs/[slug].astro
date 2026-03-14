@@ -1,0 +1,20 @@
+---
+import { getCollection, render } from "astro:content";
+import QuickRefListing from "@layouts/QuickRefListing.astro";
+
+export async function getStaticPaths() {
+  const quickrefs = await getCollection("quickrefs");
+  return quickrefs.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { slug } = Astro.params;
+const { Content } = await render(entry);
+---
+
+<QuickRefListing frontmatter={entry.data} slug={slug}>
+  <Content />
+</QuickRefListing>

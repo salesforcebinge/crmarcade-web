@@ -1,0 +1,99 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import AppProse from "../components/app/Prose.astro";
+import AppShell from "@components/app/AppShell.astro";
+import { Icon } from "astro-icon/components";
+
+const { frontmatter, slug } = Astro.props;
+
+const title = frontmatter?.title;
+const description = frontmatter?.description;
+const tldr = frontmatter?.tldr;
+const category = frontmatter?.category;
+const related_scenarios = frontmatter?.related_scenarios || [];
+const related_tools = frontmatter?.related_tools || [];
+---
+
+<BaseLayout title={title} description={description} slug={`quick-refs/${slug}`}>
+  <AppShell>
+    <div class="max-w-2xl w-full mx-auto py-16 px-6">
+      {/* Back link + Category badge */}
+      <div class="flex items-center justify-between mb-8">
+        <a href="/quick-refs" class="inline-flex items-center gap-1 text-sm text-gray-500 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
+          <Icon name="tabler:arrow-left" class="w-4 h-4" />
+          All Quick References
+        </a>
+        {category && (
+          <span class="inline-flex items-center rounded-md px-2 py-0.5 text-xs font-medium bg-gray-100 text-gray-700 ring-1 ring-inset ring-gray-300 dark:bg-gray-700 dark:text-gray-300 dark:ring-gray-600">
+            {category}
+          </span>
+        )}
+      </div>
+
+      {/* Title */}
+      <h1 class="font-bold text-3xl sm:text-4xl text-gray-900 dark:text-gray-50 mb-3">
+        {title}
+      </h1>
+      <p class="text-gray-500 dark:text-gray-400 mb-6">{description}</p>
+
+      {/* TL;DR Callout */}
+      {tldr && (
+        <div class="mb-10 rounded-lg border border-primary-200 dark:border-primary-800 bg-primary-50 dark:bg-primary-950/50 p-4">
+          <div class="flex items-start gap-2">
+            <Icon name="tabler:bolt" class="w-4 h-4 text-primary-600 dark:text-primary-400 mt-0.5 shrink-0" />
+            <div>
+              <span class="text-xs font-semibold uppercase tracking-wider text-primary-600 dark:text-primary-400">TL;DR</span>
+              <p class="text-sm text-primary-800 dark:text-primary-200 mt-1">
+                {tldr}
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Main Content */}
+      <AppProse>
+        <slot />
+      </AppProse>
+
+      {/* Related Items Footer */}
+      {(related_scenarios.length > 0 || related_tools.length > 0) && (
+        <div class="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
+          <h3 class="text-sm font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-4">
+            Related
+          </h3>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 text-sm">
+            {related_scenarios.length > 0 && (
+              <div>
+                <span class="text-xs uppercase tracking-wider text-gray-400 dark:text-gray-500">Scenarios</span>
+                <ul class="mt-2 space-y-1">
+                  {related_scenarios.map((scenario: string) => (
+                    <li>
+                      <a href={`/scenarios/${scenario}`} class="text-primary-600 dark:text-primary-400 hover:underline">
+                        {scenario}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+            {related_tools.length > 0 && (
+              <div>
+                <span class="text-xs uppercase tracking-wider text-gray-400 dark:text-gray-500">Tools</span>
+                <ul class="mt-2 space-y-1">
+                  {related_tools.map((tool: string) => (
+                    <li>
+                      <a href={`/${tool}`} class="text-primary-600 dark:text-primary-400 hover:underline">
+                        {tool}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+    </div>
+  </AppShell>
+</BaseLayout>
